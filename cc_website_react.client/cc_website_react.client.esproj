@@ -12,7 +12,6 @@
     <Folder Include="public\posts\" />
     <Folder Include="src\dist\" />
   </ItemGroup>
-
   <Target Name="GeneratePosts" BeforeTargets="Build" Condition="'$(Configuration)'=='Debug'">
     <Exec Command="npm run prebuild" WorkingDirectory="$(ProjectDir)..\cc_website_react.client" />
   </Target>

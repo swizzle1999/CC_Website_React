@@ -6,13 +6,21 @@ import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 import remarkGfm from 'remark-gfm';
 
+const IMAGE_EXTENSIONS = /\.(png|jpe?g|gif|webp|svg|avif)$/i;
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const projectRoot = path.resolve(__dirname, '..');
 const contentDir = path.join(projectRoot, 'content', 'posts');
 const publicOut = path.join(projectRoot, '..', 'public', 'posts');
 
-if (!fs.existsSync(publicOut)) fs.mkdirSync(publicOut, { recursive: true });
+// Ensure output directory exists, or clear it if it does
+if (!fs.existsSync(publicOut)) {
+    fs.mkdirSync(publicOut, { recursive: true });
+} else {
+    fs.rmSync(publicOut, { recursive: true, force: true });
+}
+
 
 const files = fs.readdirSync(contentDir).filter(f => /\.mdx?$/.test(f));
 const postsIndex = [];
@@ -48,6 +56,10 @@ for (const file of files) {
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
 
+    // copy images from the post's image folder (e.g. 2026-04-30-welcome/) to public output
+    const imagesSrc = path.join(contentDir, file.replace(/\.mdx?$/, ''));
+    copyImages(imagesSrc, outDir);
+
     // write per-post JSON manifest (optional)
     fs.writeFileSync(path.join(publicOut, `${slug}.json`), JSON.stringify({ meta }), 'utf8');
 
@@ -58,3 +70,17 @@ for (const file of files) {
 fs.writeFileSync(path.join(publicOut, 'index.json'), JSON.stringify(postsIndex.sort((a, b) => new Date(b.date) - new Date(a.date))), 'utf8');
 
 console.log(`Generated ${postsIndex.length} posts to ${publicOut}`);
+
+function copyImages(srcDir, destDir) {
+    if (!fs.existsSync(srcDir)) {
+        return;
+    }
+
+    fs.mkdirSync(destDir, { recursive: true });
+
+    for (const entry of fs.readdirSync(srcDir)) {
+        if (IMAGE_EXTENSIONS.test(entry)) {
+            fs.copyFileSync(path.join(srcDir, entry), path.join(destDir, entry));
+        }
+    }
+}
