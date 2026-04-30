@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="cc_website_react.client/cc_website_react.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="CC_Website_React.Server/CC_Website_React.Server.csproj" />
+</Solution>

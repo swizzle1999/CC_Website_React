@@ -1,0 +1,14 @@
+.post-items {
+    margin: 0rem 1rem 0rem 1rem;
+}
+
+.post-item {
+    padding: .375rem .75rem;
+    border-radius: .375rem;
+    text-decoration: none;
+    color: #FFF;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    display: block;
+    min-height: 10rem;
+}

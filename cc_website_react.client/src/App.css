@@ -1,0 +1,10 @@
+﻿#root {
+    margin: 0 auto;
+    text-align: center;
+    background: #41ac4f;
+}
+
+th, td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

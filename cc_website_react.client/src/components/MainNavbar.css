@@ -1,0 +1,19 @@
+/*TODO: Set colours as variables*/
+
+.main-navbar {
+    background-color: #FFF;
+    border-radius: .375rem;
+    margin: 1rem 1rem 0rem 1rem;
+}
+
+.nav-btn {
+    padding: .375rem .75rem;
+    border-radius: .375rem;
+    text-decoration: none;
+    color: #000
+}
+
+.nav-btn.active {
+    background: #41ac4f;
+    color: #000;
+}
