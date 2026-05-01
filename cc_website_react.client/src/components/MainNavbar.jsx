@@ -17,7 +17,7 @@ function MainNavbar() {
                         <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/news">News</NavLink>
                     </Nav>
 
-                    <div className="d-flex flex-grow-1 gap-3 justify-content-center  justify-content-lg-end">
+                    <div className="d-flex flex-grow-1 gap-3 justify-content-center  justify-content-lg-end mt-2 mt-lg-0">
                         <a className="nav-btn" href="https://x.com/CaledonianClash" target="_blank" rel="noopener noreferrer">
                             <Image src="../x.png" width="35" height="36" />
                         </a>

@@ -23,7 +23,7 @@ export default function PostList() {
                                     </div>
                                 </Row>
 
-                                <Row className="justify-content-center">
+                                <Row className="justify-content-center post-thumbnail-wrapper">
                                     <Image src={`../posts/${p.slug}/${p.thumbnail}`} alt={p.title} fluid className="post-thumbnail" />
                                 </Row>
                             </Col>
