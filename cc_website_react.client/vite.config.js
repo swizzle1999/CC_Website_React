@@ -37,9 +37,43 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
 const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_HTTPS_PORT}` :
     env.ASPNETCORE_URLS ? env.ASPNETCORE_URLS.split(';')[0] : 'https://localhost:7079';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+function generatePostsPlugin() {
+    const scriptPath = path.resolve(__dirname, 'src/scripts/generate-posts.mjs');
+    const contentDir = path.resolve(__dirname, 'src/content/posts');
+
+    return {
+        name: 'generate-posts',
+
+        async buildStart() {
+            const { execFileSync } = await import('child_process');
+            execFileSync(process.execPath, [scriptPath], { stdio: 'inherit' });
+        },
+
+        configureServer(server) {
+            server.watcher.add(contentDir);
+
+            server.watcher.on('change', async (file) => {
+                if (!file.startsWith(contentDir)) {
+                    return;
+                }
+
+                console.log('[generate-posts] MDX changed, regenerating...');
+
+                const { execFileSync } = await import('child_process');
+
+                execFileSync(process.execPath, [scriptPath], { stdio: 'inherit' });
+
+                server.ws.send({ type: 'full-reload' });
+            });
+        }
+    };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [plugin()],
+    plugins: [plugin(), generatePostsPlugin()],
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))

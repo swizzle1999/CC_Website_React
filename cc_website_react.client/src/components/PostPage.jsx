@@ -1,4 +1,4 @@
-import { useParams } from 'react-router';
+﻿import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import './PostPage.scss';
 
@@ -6,6 +6,7 @@ export default function PostPage() {
     const { slug } = useParams();
     const [articleHtml, setArticleHtml] = useState('');
     const [title, setTitle] = useState('');
+    const [date, setDate] = useState('');
     const [banner, setBanner] = useState(null);
     const [error, setError] = useState(null);
 
@@ -40,11 +41,17 @@ export default function PostPage() {
                 setError(e.message);
             });
 
-        // Fetch post metadata for the banner image
+        // Fetch post metadata
         fetch(`/posts/${slug}.json`)
             .then(r => r.ok ? r.json() : null)
-            .then(data => setBanner(data?.meta?.banner ?? null))
-            .catch(() => setBanner(null));
+            .then(data => {
+                setBanner(data?.meta?.banner ?? null);
+                setDate(data?.meta?.date ?? '');
+            })
+            .catch(() => {
+                setBanner(null);
+                setDate('');
+            });
     }, [slug]);
 
     // Display error if necassary
@@ -54,6 +61,12 @@ export default function PostPage() {
 
     if (!articleHtml) {
         return <p>Loading...</p>;
+    }
+
+    // Only add emoji if date is available
+    let dateText = ''
+    if (date != '') {
+        dateText = '🗓️' + date || ''
     }
 
     return (
@@ -66,6 +79,7 @@ export default function PostPage() {
                 )}
                 <div className="p-3">
                     <h1 className="post-page-title">{title}</h1>
+                    <p>{dateText}</p>
                     <article className="post-page-content" dangerouslySetInnerHTML={{ __html: articleHtml }} />
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import fs from 'fs';
+﻿import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import matter from 'gray-matter';
@@ -32,25 +32,24 @@ for (const file of files) {
     const meta = { ...data, slug };
 
     // convert markdown to HTML
-    const processed = await remark().use(remarkGfm).use(remarkHtml).process(content);
+    const processed = await remark().use(remarkGfm).use(remarkHtml, { sanitize: false }).process(content);
     const htmlContent = String(processed);
 
-    // simple HTML template (customize as needed)
-    const html = `<!doctype html>
- <html lang="en">
- <head>
- <meta charset="utf-8">
- <title>${meta.title || 'Post'}</title>
- <meta name="description" content="${(meta.description || '').replace(/"/g, '&quot;')}">
- </head>
- <body>
- <article>
-   <h1>${meta.title || ''}</h1>
-   <p><time datetime="${meta.date || ''}">${meta.date || ''}</time></p>
-   ${htmlContent}
- </article>
- </body>
- </html>`;
+    const html = `
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>${meta.title || 'Post'}</title>
+    <meta name="description" content="${(meta.description || '').replace(/"/g, '&quot;')}">
+    <meta name="date" content="${(data.date || '')}">
+</head>
+<body>
+    <article>
+        ${htmlContent}
+    </article>
+</body>
+</html>`;
 
     const outDir = path.join(publicOut, slug);
     fs.mkdirSync(outDir, { recursive: true });

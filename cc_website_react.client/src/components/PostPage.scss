@@ -41,4 +41,31 @@
     font-size: 15px;
     color: var(--text);
     text-wrap: pretty;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.375rem;
+    }
+
+    .img-center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .img-left {
+        float: left;
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .img-right {
+        float: right;
+        margin-left: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .img-small { width: 200px; }
+    .img-large { width: 600px; }
 }
