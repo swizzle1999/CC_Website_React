@@ -28,7 +28,7 @@ const postsIndex = [];
 for (const file of files) {
     const raw = fs.readFileSync(path.join(contentDir, file), 'utf8');
     const { data, content } = matter(raw);
-    const slug = (data.slug || file.replace(/\.mdx?$/, '')).replace(/^\d{4}-\d{2}-\d{2}-/, '');
+    const slug = (data.slug + " - " + data.date || file.replace(/\.mdx?$/, '')).replace(/^\d{4}-\d{2}-\d{2}-/, '');
     const meta = { ...data, slug };
 
     // convert markdown to HTML
@@ -56,7 +56,7 @@ for (const file of files) {
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
 
-    // copy images from the post's image folder (e.g. 2026-04-30-welcome/) to public output
+    // copy images from the post's image folder to public output
     const imagesSrc = path.join(contentDir, file.replace(/\.mdx?$/, ''));
     copyImages(imagesSrc, outDir);
 

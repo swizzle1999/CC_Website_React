@@ -10,10 +10,15 @@
     padding: .375rem .75rem;
     border-radius: .375rem;
     text-decoration: none;
-    color: #000
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #41ac4f;
 }
 
 .nav-btn.active {
     background: #41ac4f;
-    color: #000;
+    color: var(--text)
 }

@@ -2,13 +2,50 @@
     margin: 0rem 1rem 0rem 1rem;
 }
 
+.post-title {
+    font-size: 25px;
+    color: var(--text);
+    text-align: center;
+}
+
+
+.post-description {
+    font-size: 15px;
+    color: var(--text);
+    text-align: start;
+    text-wrap: pretty;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post-date {
+    font-size: 15px;
+    color: var(--text);2
+}
+
+.post-date-row {
+}
+
+.post-thumbnail {
+    max-height: 150px;
+    width: auto;
+    max-width: 100%;
+}
+
 .post-item {
     padding: .375rem .75rem;
     border-radius: .375rem;
     text-decoration: none;
-    color: #FFF;
     border: 1px solid #dee2e6;
     border-radius: 0.5rem;
     display: block;
     min-height: 10rem;
+    background-color: #9f9f9f;
+    transition: 0.3s;
+}
+
+.post-item:hover {
+    background-color: #FFFFFF
 }
