@@ -26,9 +26,10 @@ const files = fs.readdirSync(contentDir, { recursive: true }).filter(f => /\.mdx
 const postsIndex = [];
 
 for (const file of files) {
+    const fileName = file.split('\\').shift();
     const raw = fs.readFileSync(path.join(contentDir, file), 'utf8');
     const { data, content } = matter(raw);
-    const slug = (data.slug + " - " + data.date || file.replace(/\.mdx?$/, '')).replace(/^\d{4}-\d{2}-\d{2}-/, '');
+    const slug = fileName;
     const meta = { ...data, slug };
 
     // convert markdown to HTML
@@ -51,7 +52,7 @@ for (const file of files) {
 </body>
 </html>`;
 
-    const outDir = path.join(publicOut, slug);
+    const outDir = path.join(publicOut, fileName);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
 
@@ -59,7 +60,7 @@ for (const file of files) {
     copyImages(contentDir + '\\' + file.split('\\').shift(), outDir);
 
     // write per-post JSON manifest (optional)
-    fs.writeFileSync(path.join(outDir, `${slug}.json`), JSON.stringify({ meta }), 'utf8');
+    fs.writeFileSync(path.join(outDir, `${fileName}.json`), JSON.stringify({ meta }), 'utf8');
 
     postsIndex.push(meta);
 }
@@ -73,8 +74,6 @@ function copyImages(srcDir, destDir) {
     if (!fs.existsSync(srcDir)) {
         return;
     }
-
-    fs.mkdirSync(destDir, { recursive: true });
 
     for (const entry of fs.readdirSync(srcDir)) {
         if (IMAGE_EXTENSIONS.test(entry)) {
