@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.scss'
 import App from './App.jsx'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import Navbar from './components/MainNavbar.jsx';
 import About from './components/About.jsx'
@@ -12,13 +13,15 @@ import PostPage from './components/PostPage.jsx'
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         <BrowserRouter>
-            <Navbar/>
-            <Routes>
-                <Route index element={<App />} />
-                <Route path="about" element={<About />} />
-                <Route path="news" element={<PostList />} />
-                <Route path="news/:slug" element={<PostPage />} />
-            </Routes>
+            <Navbar />
+            <Container className="px-3">
+                <Routes>
+                    <Route index element={<App />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="news" element={<PostList />} />
+                    <Route path="news/:slug" element={<PostPage />} />
+                </Routes>
+            </Container>
         </BrowserRouter>    
   </StrictMode>,
 )

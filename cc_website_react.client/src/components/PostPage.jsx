@@ -80,6 +80,7 @@ export default function PostPage() {
                 <div className="p-3">
                     <h1 className="post-page-title">{title}</h1>
                     <p>{dateText}</p>
+                    {/*Trust me bro, its fine*/}
                     <article className="post-page-content" dangerouslySetInnerHTML={{ __html: articleHtml }} />
                 </div>
             </div>

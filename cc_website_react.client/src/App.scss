@@ -4,7 +4,15 @@
     background: var(--bg);
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+.card-box {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    background-color: #9F9F9FC8;
+    overflow: hidden;
+    text-align: left;
+}
+
+.home-image {
+    max-height: 400px;
+    object-fit: cover;
 }
