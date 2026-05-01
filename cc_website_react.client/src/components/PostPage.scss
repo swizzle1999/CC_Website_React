@@ -1,0 +1,44 @@
+@use '../styles/bootstrap-utils' as bp;
+
+.post-page {
+    margin: 1rem;
+}
+
+.post-page-card {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    background-color: #9F9F9FC8;
+    overflow: hidden;
+    text-align: left;
+}
+
+.post-page-banner-wrapper {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.post-page-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-page-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+
+    @media (min-width: bp.$sm) { font-size: 24px; }
+    @media (min-width: bp.$md) { font-size: 30px; }
+    @media (min-width: bp.$lg) { font-size: 36px; }
+}
+
+.post-page-content {
+    font-size: 15px;
+    color: var(--text);
+    text-wrap: pretty;
+}
