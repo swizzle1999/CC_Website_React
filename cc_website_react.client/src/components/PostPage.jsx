@@ -42,9 +42,10 @@ export default function PostPage() {
             });
 
         // Fetch post metadata
-        fetch(`/posts/${slug}.json`)
+        fetch(`/posts/${slug}/${slug}.json`)
             .then(r => r.ok ? r.json() : null)
             .then(data => {
+                console.log(data)
                 setBanner(data?.meta?.banner ?? null);
                 setDate(data?.meta?.date ?? '');
             })
