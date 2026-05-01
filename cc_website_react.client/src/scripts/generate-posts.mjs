@@ -55,9 +55,8 @@ for (const file of files) {
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
 
-    // copy images from the post's image folder to public output
-    const imagesSrc = path.join(contentDir, file.replace(/\.mdx?$/, ''));
-    copyImages(imagesSrc, outDir);
+    // copy images from the post's folder to public output
+    copyImages(contentDir + '\\' + file.split('\\').shift(), outDir);
 
     // write per-post JSON manifest (optional)
     fs.writeFileSync(path.join(outDir, `${slug}.json`), JSON.stringify({ meta }), 'utf8');
