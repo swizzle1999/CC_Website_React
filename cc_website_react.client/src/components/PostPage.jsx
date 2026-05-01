@@ -45,7 +45,6 @@ export default function PostPage() {
         fetch(`/posts/${slug}/${slug}.json`)
             .then(r => r.ok ? r.json() : null)
             .then(data => {
-                console.log(data)
                 setBanner(data?.meta?.banner ?? null);
                 setDate(data?.meta?.date ?? '');
             })
