@@ -22,7 +22,7 @@ if (!fs.existsSync(publicOut)) {
 }
 
 
-const files = fs.readdirSync(contentDir).filter(f => /\.mdx?$/.test(f));
+const files = fs.readdirSync(contentDir, { recursive: true }).filter(f => /\.mdx?$/.test(f));
 const postsIndex = [];
 
 for (const file of files) {
@@ -60,7 +60,7 @@ for (const file of files) {
     copyImages(imagesSrc, outDir);
 
     // write per-post JSON manifest (optional)
-    fs.writeFileSync(path.join(publicOut, `${slug}.json`), JSON.stringify({ meta }), 'utf8');
+    fs.writeFileSync(path.join(outDir, `${slug}.json`), JSON.stringify({ meta }), 'utf8');
 
     postsIndex.push(meta);
 }

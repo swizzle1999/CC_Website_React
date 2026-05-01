@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "prebuild": "node cc_website_react.client/src/scripts/generate-posts.mjs"
+  },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/runtime": "^1.6.22"

@@ -43,28 +43,28 @@ function generatePostsPlugin() {
     const scriptPath = path.resolve(__dirname, 'src/scripts/generate-posts.mjs');
     const contentDir = path.resolve(__dirname, 'src/content/posts');
 
+    function runGenerate() {
+        child_process.execFileSync(process.execPath, [scriptPath], { stdio: 'inherit' });
+    }
+
     return {
         name: 'generate-posts',
 
-        async buildStart() {
-            const { execFileSync } = await import('child_process');
-            execFileSync(process.execPath, [scriptPath], { stdio: 'inherit' });
+        // Runs during `npm run build` only (configureServer handles dev)
+        buildStart() {
+            if (!this.meta.watchMode) runGenerate();
         },
 
+        // Runs during `npm run dev`
         configureServer(server) {
+            runGenerate();
+
             server.watcher.add(contentDir);
 
-            server.watcher.on('change', async (file) => {
-                if (!file.startsWith(contentDir)) {
-                    return;
-                }
-
+            server.watcher.on('change', (file) => {
+                if (!file.startsWith(contentDir)) return;
                 console.log('[generate-posts] MDX changed, regenerating...');
-
-                const { execFileSync } = await import('child_process');
-
-                execFileSync(process.execPath, [scriptPath], { stdio: 'inherit' });
-
+                runGenerate();
                 server.ws.send({ type: 'full-reload' });
             });
         }
