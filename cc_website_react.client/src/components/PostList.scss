@@ -1,11 +1,17 @@
+@use '../styles/bootstrap-utils' as bp;
+
 .post-items {
     margin: 0rem 1rem 0rem 1rem;
 }
 
 .post-title {
-    font-size: 25px;
+    font-size: 14px;
     color: var(--text);
     text-align: center;
+
+    @media (min-width: bp.$sm) { font-size: 16px; }
+    @media (min-width: bp.$md) { font-size: 20px; }
+    @media (min-width: bp.$lg) { font-size: 25px; }
 }
 
 
@@ -22,7 +28,7 @@
 
 .post-date {
     font-size: 15px;
-    color: var(--text);2
+    color: var(--text);
 }
 
 .post-date-row {

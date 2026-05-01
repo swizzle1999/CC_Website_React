@@ -1,4 +1,4 @@
-﻿import './PostList.css';
+import './PostList.scss';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { Container, Row, Col, Image } from 'react-bootstrap';

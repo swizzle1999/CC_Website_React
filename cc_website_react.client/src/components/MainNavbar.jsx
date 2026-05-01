@@ -1,4 +1,4 @@
-import './MainNavbar.css';
+import './MainNavbar.scss';
 import { Nav, Navbar, Container, Image } from 'react-bootstrap';
 import { NavLink } from 'react-router';
 
@@ -11,13 +11,13 @@ function MainNavbar() {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-3 gap-3">
+                    <Nav className="ms-lg-3 gap-3">
                         <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/">Home</NavLink>
                         <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/about">About Us</NavLink>
                         <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/news">News</NavLink>
                     </Nav>
 
-                    <div className="d-flex flex-grow-1 justify-content-end">
+                    <div className="d-flex flex-grow-1 gap-3 justify-content-center  justify-content-lg-end">
                         <a className="nav-btn" href="https://x.com/CaledonianClash" target="_blank" rel="noopener noreferrer">
                             <Image src="../x.png" width="35" height="36" />
                         </a>
