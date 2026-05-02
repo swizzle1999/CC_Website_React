@@ -2,7 +2,8 @@ import './App.scss';
 import { useEffect, useState } from 'react';
 import Post from './components/Post.jsx';
 import TwitterFeed from './components/TwitterFeed.jsx';
-import { Row, Col, Container, Image } from 'react-bootstrap';
+import EventCalendar from './components/EventCalendar.jsx';
+import { Row, Col, Container, Image, Stack } from 'react-bootstrap';
 
 function App() {
     const [posts, setPosts] = useState([]);
@@ -23,11 +24,6 @@ function App() {
 
                         <p>We mainly use our discord for communication and planning so feel free to join and chat!</p>
 
-                        {/*<div>*/}
-                        {/*    Disabled so that we dont hit rate limit*/}
-                        {/*    <TwitterFeed/>*/}
-                        {/*</div>*/}
-
                         {/*Latest news post*/}
                         {/*<div>*/}
                         {/*    {posts.map(post => (*/}
@@ -37,7 +33,20 @@ function App() {
                     </div>
                 </Col>
                 <Col>
-                    <Image className="home-image card-box mt-2 w-100" src="caledonian_exterior.jpg" fluid/>
+                    <Stack>
+                        <Image className="home-image card-box mt-2 w-100" src="caledonian_exterior.jpg" fluid />
+                        <div className="card-box mt-2 justify-content-center">
+                            <p className="text-center mb-0">9 High St, Inverness IV1 1HY</p>
+                        </div>
+                    </Stack>
+                </Col>
+            </Row>
+            {/*<Row>*/}
+            {/*        <TwitterFeed/>*/}
+            {/*</Row>*/}
+            <Row className="mt-2">
+                <Col>
+                    <EventCalendar />
                 </Col>
             </Row>
         </div>

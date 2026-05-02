@@ -13,7 +13,7 @@ function MainNavbar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-lg-3 gap-3">
                         <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/">Home</NavLink>
-                        <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/about">About Us</NavLink>
+                        {/*<NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/about">About Us</NavLink>*/}
                         <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/news">News</NavLink>
                     </Nav>
 

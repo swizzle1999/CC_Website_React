@@ -7,9 +7,13 @@
 .card-box {
     border-radius: 0.5rem;
     border: 1px solid #dee2e6;
-    background-color: #9F9F9FC8;
+    background-color: #FFFFFF;
     overflow: hidden;
     text-align: left;
+}
+
+.card-box p {
+    padding: 0.5rem;
 }
 
 .home-image {

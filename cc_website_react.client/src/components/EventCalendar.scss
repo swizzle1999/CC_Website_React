@@ -1,0 +1,17 @@
+.event-calendar {
+    padding: 1rem;
+
+    .fc-event {
+        cursor: pointer;
+        background-color: #41ac4f;
+        border-color: #2e7a38;
+    }
+
+    .fc-toolbar-title {
+        font-size: 1.1rem;
+    }
+
+    a {
+        color: black;
+    }
+}
