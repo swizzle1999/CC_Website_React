@@ -12,16 +12,16 @@ import PostPage from './components/PostPage.jsx'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Navbar />
             <div className="mx-3">
                 <Routes>
-                    <Route path={import.meta.env.BASE_URL} element={<App />} />
+                    <Route path="/" element={<App />} />
                     {/*<Route path="about" element={<About />} />*/}
                     <Route path="news" element={<PostList />} />
                     <Route path="news/:slug" element={<PostPage />} />
                 </Routes>
             </div>
-        </BrowserRouter>    
+        </BrowserRouter>
   </StrictMode>,
 )
