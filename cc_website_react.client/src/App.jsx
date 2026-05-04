@@ -8,7 +8,7 @@ import { Row, Col, Container, Image, Stack } from 'react-bootstrap';
 function App() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        fetch('../posts/index.json').then(r => r.json()).then(data => setPosts(data.slice(0, 1)));
+        fetch(`${import.meta.env.BASE_URL}posts/index.json`).then(r => r.json()).then(data => setPosts(data.slice(0, 1)));
     }, []);
 
     return (
@@ -34,7 +34,7 @@ function App() {
                 </Col>
                 <Col>
                     <Stack>
-                        <Image className="home-image card-box mt-2 w-100" src="caledonian_exterior.jpg" fluid />
+                        <Image className="home-image card-box mt-2 w-100" src={`${import.meta.env.BASE_URL}caledonian_exterior.jpg`} fluid />
                         <div className="card-box mt-2 justify-content-center">
                             <p className="text-center mb-0">9 High St, Inverness IV1 1HY</p>
                         </div>

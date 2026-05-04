@@ -7,7 +7,7 @@ export default function Post({ post }) {
         <Col key={post.slug} xs={12} sm={6} lg={4}>
             <Link className="post-item d-flex flex-column h-100" to={'/news/' + post.slug}>
                 <div className="post-thumbnail-wrapper">
-                    <img src={`../posts/${post.slug}/${post.thumbnail}`} alt={post.title} className="post-thumbnail" />
+                    <img src={`${import.meta.env.BASE_URL}posts/${post.slug}/${post.thumbnail}`} alt={post.title} className="post-thumbnail" />
                 </div>
                 <div className="p-2 d-flex flex-column flex-grow-1">
                     <div className="post-title">{post.title}</div>

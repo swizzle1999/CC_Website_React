@@ -13,7 +13,7 @@ export default function PostPage() {
     // Fetch the post HTML from the server
     // Effect triggers whenever the slug changes (i.e. when navigating to a different post)
     useEffect(() => {
-        fetch(`/posts/${slug}/index.html`)
+        fetch(`${import.meta.env.BASE_URL}posts/${slug}/index.html`)
             .then(r => {
                 if (!r.ok) {
                     throw new Error(`Post not found (${r.status})`);
@@ -29,7 +29,7 @@ export default function PostPage() {
                 doc.querySelectorAll('img').forEach(img => {
                     const src = img.getAttribute('src');
                     if (src && !src.startsWith('/') && !src.startsWith('http') && !src.startsWith('data:')) {
-                        img.setAttribute('src', `/posts/${slug}/${src}`);
+                        img.setAttribute('src', `${import.meta.env.BASE_URL}posts/${slug}/${src}`);
                     }
                 });
 
@@ -42,7 +42,7 @@ export default function PostPage() {
             });
 
         // Fetch post metadata
-        fetch(`/posts/${slug}/${slug}.json`)
+        fetch(`${import.meta.env.BASE_URL}posts/${slug}/${slug}.json`)
             .then(r => r.ok ? r.json() : null)
             .then(data => {
                 setBanner(data?.meta?.banner ?? null);
@@ -74,7 +74,7 @@ export default function PostPage() {
             <div className="post-page-card">
                 {banner && (
                     <div className="post-page-banner-wrapper">
-                        <img src={`/posts/${slug}/${banner}`} alt={title} className="post-page-banner" />
+                        <img src={`${import.meta.env.BASE_URL}posts/${slug}/${banner}`} alt={title} className="post-page-banner" />
                     </div>
                 )}
                 <div className="p-3">

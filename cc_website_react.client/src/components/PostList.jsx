@@ -6,7 +6,7 @@ import Post from './Post.jsx';
 export default function PostList() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        fetch('../posts/index.json').then(r => r.json()).then(setPosts);
+        fetch(`${import.meta.env.BASE_URL}posts/index.json`).then(r => r.json()).then(setPosts);
     }, []);
 
     return (

@@ -72,8 +72,8 @@ function generatePostsPlugin() {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig({
-    base: "/CC_Website_React",
+export default defineConfig(({ mode }) => ({
+    base: mode === 'production' ? "/CC_Website_React/" : "/",
     plugins: [plugin(), generatePostsPlugin()],
     resolve: {
         alias: {
@@ -93,4 +93,4 @@ export default defineConfig({
             cert: fs.readFileSync(certFilePath),
         }
     }
-})
+}))

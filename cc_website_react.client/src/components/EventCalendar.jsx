@@ -8,7 +8,7 @@ function EventCalendar() {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        fetch('/events.json').then(r => r.json()).then(setEvents);
+        fetch(`${import.meta.env.BASE_URL}events.json`).then(r => r.json()).then(setEvents);
     }, []);
 
     return (
