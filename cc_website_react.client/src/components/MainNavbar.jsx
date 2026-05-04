@@ -6,7 +6,7 @@ function MainNavbar() {
     return (
         <Navbar className="main-navbar" expand="lg">
             <Container>
-                <Navbar.Brand href="/" className="flex-shrink-0">
+                <Navbar.Brand href={import.meta.env.BASE_URL} className="flex-shrink-0">
                     <Image src={`${import.meta.env.BASE_URL}logo.png`} width="200" height="169"/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
