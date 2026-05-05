@@ -5,6 +5,17 @@
     <link rel="icon" href="/CC_Website_React/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Caledonian Clash</title>
+    <script>
+      // Restore the route encoded by 404.html before React initialises.
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var route = params.get('p');
+        if (route) {
+          var base = '/CC_Website_React/';
+          window.history.replaceState(null, '', base + route);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/CC_Website_React/assets/index-B6j5mpu_.js"></script>
     <link rel="stylesheet" crossorigin href="/CC_Website_React/assets/index-D8FKyil4.css">
   </head>
