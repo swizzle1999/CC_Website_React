@@ -5,6 +5,17 @@
     <link rel="icon" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Caledonian Clash</title>
+    <script>
+      // Restore the route encoded by 404.html before React initialises.
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var route = params.get('p');
+        if (route) {
+          var base = '%BASE_URL%';
+          window.history.replaceState(null, '', base + route);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
