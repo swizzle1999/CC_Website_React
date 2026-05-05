@@ -22,6 +22,9 @@ createRoot(document.getElementById('root')).render(
                     <Route path="news/:slug" element={<PostPage />} />
                 </Routes>
             </div>
+            <footer className="site-footer mt-2 mx-3 my-3">
+                <p className="mb-0">Made By Swizz</p>
+            </footer>
         </BrowserRouter>
   </StrictMode>,
 )
