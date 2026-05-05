@@ -28,6 +28,7 @@ function EventCalendar() {
                     minute: '2-digit',
                     hour12: false,
                 }}
+                eventBorderColor="#000"
                 
             />
         </div>
