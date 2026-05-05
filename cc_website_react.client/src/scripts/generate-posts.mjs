@@ -15,11 +15,11 @@ const contentDir = path.join(projectRoot, 'content', 'posts');
 const publicOut = path.join(projectRoot, '..', 'public', 'posts');
 
 // Ensure output directory exists, or clear it if it does
-if (!fs.existsSync(publicOut)) {
-    fs.mkdirSync(publicOut, { recursive: true });
-} else {
+if (fs.existsSync(publicOut)) {
     fs.rmSync(publicOut, { recursive: true, force: true });
 }
+
+fs.mkdirSync(publicOut, { recursive: true });
 
 
 const files = fs.readdirSync(contentDir, { recursive: true }).filter(f => /\.mdx?$/.test(f));
