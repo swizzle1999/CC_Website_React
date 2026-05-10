@@ -7,7 +7,7 @@
       // Detect the base path dynamically (e.g. /CC_Website_React/) from the
       // first URL segment, then redirect to the SPA root with the route encoded
       // as a query param so index.html can restore it via history.replaceState.
-      var base = '/' + window.location.pathname.split('/')[1] + '/';
+      var base = '/';
       var route = window.location.pathname.slice(base.length) + window.location.search;
       window.location.replace(base + '?p=' + encodeURIComponent(route) + window.location.hash);
     </script>
