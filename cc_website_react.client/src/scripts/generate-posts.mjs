@@ -66,7 +66,22 @@ for (const file of files) {
 }
 
 // write index manifest
-fs.writeFileSync(path.join(publicOut, 'index.json'), JSON.stringify(postsIndex.sort((a, b) => new Date(b.date) - new Date(a.date))), 'utf8');
+const sortedPosts = postsIndex.sort((a, b) => new Date(b.date) - new Date(a.date));
+fs.writeFileSync(path.join(publicOut, 'index.json'), JSON.stringify(sortedPosts), 'utf8');
+
+// generate sitemap.xml
+const BASE_URL = 'https://caledonianclash.co.uk';
+const today = new Date().toISOString().split('T')[0];
+const staticRoutes = ['/', '/news'];
+const postRoutes = sortedPosts.map(p => `/news/${p.slug}`);
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${[...staticRoutes, ...postRoutes].map(route => `  <url>
+    <loc>${BASE_URL}${route}</loc>
+    <lastmod>${today}</lastmod>
+  </url>`).join('\n')}
+</urlset>`;
+fs.writeFileSync(path.join(publicOut, '..', 'sitemap.xml'), sitemap, 'utf8');
 
 console.log(`Generated ${postsIndex.length} posts to ${publicOut}`);
 

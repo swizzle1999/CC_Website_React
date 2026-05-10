@@ -1,14 +1,18 @@
 ﻿import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import './PostPage.scss';
+import { useMeta } from '../hooks/useMeta.js';
 
 export default function PostPage() {
     const { slug } = useParams();
     const [articleHtml, setArticleHtml] = useState('');
     const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
     const [date, setDate] = useState('');
     const [banner, setBanner] = useState(null);
     const [error, setError] = useState(null);
+
+    useMeta(title || null, description || null);
 
     // Fetch the post HTML from the server
     // Effect triggers whenever the slug changes (i.e. when navigating to a different post)
@@ -24,6 +28,7 @@ export default function PostPage() {
             .then(html => {
                 const doc = new DOMParser().parseFromString(html, 'text/html');
                 setTitle(doc.title);
+                setDescription(doc.querySelector('meta[name="description"]')?.getAttribute('content') ?? '');
 
                 // Rewrite relative img src attributes to point to the correct public path
                 doc.querySelectorAll('img').forEach(img => {

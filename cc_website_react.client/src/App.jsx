@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import Post from './components/Post.jsx';
 import EventCalendar from './components/EventCalendar.jsx';
 import { Row, Col, Image, Stack } from 'react-bootstrap';
+import { useMeta } from './hooks/useMeta.js';
 
 function App() {
+    useMeta(null, 'Caledonian Clash is a weekly fighting game local in Inverness, running every Monday from 7PM–10PM at 9 High St, Inverness IV1 1HY. All skill levels welcome.');
     const [post, setPost] = useState(null);
     const featuredSlug = 'nml4';
 
