@@ -72,8 +72,8 @@ function generatePostsPlugin() {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-    base: mode === 'production' ? "/CC_Website_React/" : "/",
+export default defineConfig(() => ({
+    base: "/",
     plugins: [plugin(), generatePostsPlugin()],
     resolve: {
         alias: {
