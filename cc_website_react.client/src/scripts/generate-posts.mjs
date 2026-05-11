@@ -73,12 +73,17 @@ fs.writeFileSync(path.join(publicOut, 'index.json'), JSON.stringify(sortedPosts)
 const BASE_URL = 'https://caledonianclash.co.uk';
 const today = new Date().toISOString().split('T')[0];
 const staticRoutes = ['/', '/news'];
-const postRoutes = sortedPosts.map(p => `/news/${p.slug}`);
+const staticEntries = staticRoutes.map(route => ({ route, lastmod: today }));
+const postEntries = sortedPosts.map(p => ({
+    route: `/news/${p.slug}`,
+    lastmod: p.date ? new Date(p.date).toISOString().split('T')[0] : today,
+}));
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...staticRoutes, ...postRoutes].map(route => `  <url>
+${[...staticEntries, ...postEntries].map(({ route, lastmod }) => `  <url>
     <loc>${BASE_URL}${route}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmod}</lastmod>
   </url>`).join('\n')}
 </urlset>`;
 fs.writeFileSync(path.join(publicOut, '..', 'sitemap.xml'), sitemap, 'utf8');
