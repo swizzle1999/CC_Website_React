@@ -1,7 +1,7 @@
 ﻿import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import './PostPage.scss';
-import { useMeta } from '../hooks/useMeta.js';
+import { useMeta } from '../../../hooks/useMeta.js';
 
 export default function PostPage() {
     const { slug } = useParams();

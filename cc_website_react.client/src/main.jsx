@@ -4,11 +4,11 @@ import './index.scss'
 import App from './App.jsx'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router';
-import Navbar from './components/MainNavbar.jsx';
-import PostList from './components/PostList.jsx'
-import PostPage from './components/PostPage.jsx'
-import Nml4 from './components/Nml4.jsx'
-import Weeklies from './components/Weeklies.jsx'
+import Navbar from './components/layout/MainNavbar.jsx';
+import PostList from './components/pages/news/PostList.jsx'
+import PostPage from './components/pages/news/PostPage.jsx'
+import Nml4 from './components/pages/Nml4/Nml4.jsx'
+import Weeklies from './components/pages/Weeklies/Weeklies.jsx'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>

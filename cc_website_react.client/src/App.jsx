@@ -1,7 +1,7 @@
 import './App.scss';
 import { useEffect, useState } from 'react';
-import Post from './components/Post.jsx';
-import EventCalendar from './components/EventCalendar.jsx';
+import Post from './components/ui/Post.jsx';
+import EventCalendar from './components/ui/EventCalendar.jsx';
 import { Row, Col, Image, Stack } from 'react-bootstrap';
 import { useMeta } from './hooks/useMeta.js';
 
