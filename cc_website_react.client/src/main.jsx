@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import Navbar from './components/MainNavbar.jsx';
 import PostList from './components/PostList.jsx'
 import PostPage from './components/PostPage.jsx'
+import Nml4 from './components/Nml4.jsx'
+import Weeklies from './components/Weeklies.jsx'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -17,6 +19,8 @@ createRoot(document.getElementById('root')).render(
                     <Route path="/" element={<App />} />
                     <Route path="news" element={<PostList />} />
                     <Route path="news/:slug" element={<PostPage />} />
+                    <Route path="nml4" element={<Nml4 />} />
+                    <Route path="weeklies" element={<Weeklies />} />
                 </Routes>
             </div>
             <footer className="site-footer mt-2 mx-3 my-3">
