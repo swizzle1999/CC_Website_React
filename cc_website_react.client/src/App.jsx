@@ -1,6 +1,7 @@
 import './App.scss';
 import { useEffect, useState } from 'react';
 import EventCalendar from './components/ui/EventCalendar.jsx';
+import LatestPost from './components/ui/LatestPost.jsx';
 import { Row, Col, Image } from 'react-bootstrap';
 import { useMeta } from './hooks/useMeta.js';
 
@@ -29,19 +30,18 @@ function App() {
                         <p>We mainly use our discord for communication and planning so feel free to join and chat!</p>
                     </div>
 
-                    {/*TODO: Implement a "Pinned news" section. The styling is a bit weird cause it uses the styling form the Post component on the post list page*/}
-                    {/*<div className="mt-2">*/}
-                    {/*    {post && <Post className="col-12" post={post} />}*/}
-                    {/*</div>*/}
-                    <Row>
-                        <Col md>
-                                <Image className="home-image card-box mt-2 w-100" src={`${import.meta.env.BASE_URL}caledonian_exterior.jpg`} fluid />
-                                <div className="card-box mt-2 justify-content-center">
-                                    <p className="text-center mb-0">9 High St, Inverness IV1 1HY</p>
-                                </div>
+                    <Row className="align-items-stretch">
+                        <Col xl className="d-flex flex-column">
+                            <div className="home-image-wrapper card-box mt-2">
+                                <Image className="home-image" src={`${import.meta.env.BASE_URL}caledonian_exterior.jpg`} fluid />
+                            </div>
+                            <div className="card-box mt-2 justify-content-center">
+                                <p className="text-center mb-0">9 High St, Inverness IV1 1HY</p>
+                            </div>
                         </Col>
-                        <Col md className="h-100">
-                            <EventCalendar/>
+                        <Col xl className="d-flex flex-column">
+                            <EventCalendar />
+                            <LatestPost />
                         </Col>
                     </Row>
                 </Col>

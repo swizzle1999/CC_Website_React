@@ -16,8 +16,12 @@
     padding: 0.5rem;
 }
 
-.home-image {
-    /*width: auto;
-    height: 5%;*/
+.home-image-wrapper {
+    min-height: 200px;
+}
 
+.home-image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
