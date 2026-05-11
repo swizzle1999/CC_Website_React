@@ -33,7 +33,7 @@ function App() {
                     <Row className="align-items-stretch">
                         <Col xl className="d-flex flex-column">
                             <div className="home-image-wrapper card-box mt-2">
-                                <Image className="home-image" src={`${import.meta.env.BASE_URL}caledonian_exterior.jpg`} fluid />
+                                <Image className="home-image" src={`${import.meta.env.BASE_URL}images/caledonian_exterior.jpg`} fluid />
                             </div>
                             <div className="card-box mt-2 justify-content-center">
                                 <p className="text-center mb-0">9 High St, Inverness IV1 1HY</p>
