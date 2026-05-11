@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import Navbar from './components/layout/MainNavbar.jsx';
 import PostList from './components/pages/news/PostList.jsx'
 import PostPage from './components/pages/news/PostPage.jsx'
-import Nml4 from './components/pages/Nml4/Nml4.jsx'
+import NoMansLand from './components/pages/NoMansLand/NoMansLand.jsx'
 import Weeklies from './components/pages/Weeklies/Weeklies.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -19,7 +19,7 @@ createRoot(document.getElementById('root')).render(
                     <Route path="/" element={<App />} />
                     <Route path="news" element={<PostList />} />
                     <Route path="news/:slug" element={<PostPage />} />
-                    <Route path="nml4" element={<Nml4 />} />
+                    <Route path="nml4" element={<NoMansLand />} />
                     <Route path="weeklies" element={<Weeklies />} />
                 </Routes>
             </div>
