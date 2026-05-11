@@ -40,8 +40,8 @@ function App() {
                             </div>
                         </Col>
                         <Col xl className="d-flex flex-column">
-                            <EventCalendar />
                             <LatestPost />
+                            <EventCalendar />
                         </Col>
                     </Row>
                 </Col>
