@@ -12,7 +12,7 @@ function EventCalendar() {
     }, []);
 
     return (
-        <div className="card-box event-calendar mt-2">
+        <div className="card-box event-calendar h-100 mt-2">
             <FullCalendar
                 plugins={[dayGridPlugin, listPlugin]}
                 initialView="listMonth"
