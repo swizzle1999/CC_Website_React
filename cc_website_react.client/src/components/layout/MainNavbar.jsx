@@ -15,6 +15,7 @@ function MainNavbar() {
                         <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/">Home</NavLink>
                         {/*<NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/about">About Us</NavLink>*/}
                         <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/news">News</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/new-players">New Players</NavLink>
                         <NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/nml4">No Man's Land</NavLink>
                         {/*<NavLink className={({ isActive }) => isActive ? 'nav-btn active' : 'nav-btn'} to="/weeklies">Weeklies</NavLink>*/}
                     </Nav>

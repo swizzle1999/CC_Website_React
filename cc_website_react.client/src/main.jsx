@@ -8,7 +8,7 @@ import Navbar from './components/layout/MainNavbar.jsx';
 import PostList from './components/pages/news/PostList.jsx'
 import PostPage from './components/pages/news/PostPage.jsx'
 import NoMansLand from './components/pages/NoMansLand/NoMansLand.jsx'
-import Weeklies from './components/pages/Weeklies/Weeklies.jsx'
+import NewPlayers from './components/pages/NewPlayers/NewPlayers.jsx'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -20,7 +20,7 @@ createRoot(document.getElementById('root')).render(
                     <Route path="news" element={<PostList />} />
                     <Route path="news/:slug" element={<PostPage />} />
                     <Route path="nml4" element={<NoMansLand />} />
-                    <Route path="weeklies" element={<Weeklies />} />
+                    <Route path="new-players" element={<NewPlayers />} />
                 </Routes>
             </div>
             <footer className="site-footer mt-2 mx-3 my-3">
