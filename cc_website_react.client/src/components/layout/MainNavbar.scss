@@ -7,6 +7,9 @@
 }
 
 .nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: .375rem .75rem;
     border-radius: .375rem;
     text-decoration: none;

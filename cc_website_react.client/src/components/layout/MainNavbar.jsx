@@ -26,6 +26,9 @@ function MainNavbar() {
                         <a className="nav-btn" href="https://discord.gg/sx37tJw4E" target="_blank" rel="noopener noreferrer">
                             <Image src={`${import.meta.env.BASE_URL}images/discord.png`} width="48" height="36" />
                         </a>
+                        <a className="nav-btn" href="https://www.tiktok.com/@caledonianclash" target="_blank" rel="noopener noreferrer">
+                            <Image src={`${import.meta.env.BASE_URL}images/tiktok.png`} width="55" height="55" />
+                        </a>
                     </div>
                 </Navbar.Collapse>
             </Container>
