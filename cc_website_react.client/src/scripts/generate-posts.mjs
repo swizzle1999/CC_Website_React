@@ -66,7 +66,7 @@ for (const file of files) {
 }
 
 // write index manifest
-const sortedPosts = postsIndex.sort((a, b) => new Date(b.date) - new Date(a.date));
+const sortedPosts = postsIndex.sort((a, b) => parseDate(b.date) - parseDate(a.date));
 fs.writeFileSync(path.join(publicOut, 'index.json'), JSON.stringify(sortedPosts), 'utf8');
 
 // generate sitemap.xml
@@ -76,7 +76,7 @@ const staticRoutes = ['/', '/news'];
 const staticEntries = staticRoutes.map(route => ({ route, lastmod: today }));
 const postEntries = sortedPosts.map(p => ({
     route: `/news/${p.slug}`,
-    lastmod: p.date ? new Date(p.date).toISOString().split('T')[0] : today,
+    lastmod: p.date ? parseDate(p.date).toISOString().split('T')[0] : today,
 }));
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 
@@ -100,4 +100,15 @@ function copyImages(srcDir, destDir) {
             fs.copyFileSync(path.join(srcDir, entry), path.join(destDir, entry));
         }
     }
+}
+
+// Parses dates in dd/mm/yyyy format (and falls back to native Date parsing)
+function parseDate(dateStr) {
+    if (!dateStr) return new Date(0);
+    const parts = String(dateStr).split('/');
+    if (parts.length === 3) {
+        const [dd, mm, yyyy] = parts;
+        return new Date(`${yyyy}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`);
+    }
+    return new Date(dateStr);
 }

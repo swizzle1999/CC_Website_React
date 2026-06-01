@@ -3,5 +3,4 @@
     <Build />
     <Deploy />
   </Project>
-  <Project Path="CC_Website_React.Server/CC_Website_React.Server.csproj" />
 </Solution>

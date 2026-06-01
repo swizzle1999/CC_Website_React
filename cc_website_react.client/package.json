@@ -10,7 +10,8 @@
     "build": "npm run prebuild && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prebuild": "node src/scripts/generate-posts.mjs"
+    "prebuild": "node src/scripts/generate-posts.mjs",
+    "prebuild:debug": "node --inspect-brk src/scripts/generate-posts.mjs"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.20",

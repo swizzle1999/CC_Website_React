@@ -19,6 +19,7 @@ export default function NoMansLand() {
                             <p>But No Man&apos;s Land has never just been about brackets. It&apos;s about community — road trips with friends, late night casuals, meeting new people, and building something meaningful in a part of the country that&apos;s often overlooked when it comes to esports and gaming events.</p>
                             <p>We&apos;re proud to represent Highland grassroots gaming, and even prouder of the people who continue to support and grow the event year after year.</p>
                             <p>This year, No Man&apos;s Land returns to the Lochardil House Hotel for its fourth iteration. Whether you&apos;re a long-time competitor or attending your very first tournament, No Man&apos;s Land is built for everyone.</p>
+                            <p><a href="https://start.gg/NML4">https://start.gg/NML4</a></p>
                             <blockquote className="nml-quote">Make the journey north.</blockquote>
                         </Col>
                         <Col md={5}>
