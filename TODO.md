@@ -2,6 +2,7 @@
 
 ## Bugs / Fixes
 - Extract navbar colours into SCSS variables (`MainNavbar.scss`)
+- Icons in navbar, specifically the media links, move around when hovering over them.
 
 ## Features / Improvements
 - Fill in the "More information coming soon" section on the New Players page (right-hand column)
