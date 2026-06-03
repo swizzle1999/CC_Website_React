@@ -1,6 +1,7 @@
 import './App.scss';
 import EventCalendar from './components/ui/EventCalendar.jsx';
 import LatestPost from './components/ui/LatestPost.jsx';
+import Countdown from './components/ui/Countdown.jsx';
 import { Row, Col, Image } from 'react-bootstrap';
 import { useMeta } from './hooks/useMeta.js';
 
@@ -11,6 +12,12 @@ function App() {
         <div className="w-100">
             <Row>
                 <Col>
+
+                    <div className="card-box countdown-container mt-2 d-flex py-2">
+                        <Image src={`${import.meta.env.BASE_URL}images/nml4_logo.png`} width="auto" height="150" className="me-5"/>
+                        <Countdown targetTime={new Date('2026-08-12T11:00:00')} />
+                    </div>
+
                     <div className="card-box mt-2">
                         <p>Caledonian Clash is a weekly fighting game local that has been running since April 17th 2023. Every Monday night running from 7PM - 10PM. We normally run a fighting game bracket followed by friendly games after.</p>
 

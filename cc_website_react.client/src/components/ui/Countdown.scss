@@ -1,0 +1,60 @@
+.countdown {
+}
+
+.clock {
+    background-color: black;
+    color: #f80e10;
+    font-family: 'DSEG7 Classic';
+    font-size: 50px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    .digit {
+        position: relative;
+
+        &::before {
+            content: "88";
+            position: absolute;
+            left: 0;
+            color: #f80e10;
+            opacity: 0.15;
+        }
+    }
+
+    .separator {
+        position: relative;
+        padding-left: 12px;
+    }
+}
+
+.ghosted {
+    opacity: 0.15;
+}
+
+#days {
+    border-radius: 20px 0px 0px 20px;
+}
+
+#hours {
+    border-radius: 0px 0px 0px 0px;
+}
+
+#minutes {
+    border-radius: 00px 0px 0px 0px;
+}
+
+#seconds {
+    border-radius: 0px 20px 20px 0px;
+}
+
+.label {
+    font-size: 22px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    height: auto;
+    align-self: center;
+    padding: 0;
+}
