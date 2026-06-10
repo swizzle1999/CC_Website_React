@@ -1,3 +1,5 @@
+@use '../../styles/bootstrap-utils' as bp;
+
 .countdown {
 }
 
@@ -5,11 +7,14 @@
     background-color: black;
     color: #f80e10;
     font-family: 'DSEG7 Classic';
-    font-size: 50px;
+
+    // Scale the font relative to the view window with min and max
+    font-size: clamp(2px, 6vw, 50px);
     position: relative;
     margin: 0;
     padding: 0;
     display: flex;
+    min-width: 0;
 
     .digit {
         position: relative;
@@ -29,12 +34,16 @@
     }
 }
 
+.countdownImage {
+    width: clamp(40px, 12vw, 160px);
+}
+
 .ghosted {
     opacity: 0.15;
 }
 
 #days {
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 10px 0px 0px 10px;
 }
 
 #hours {
@@ -46,15 +55,12 @@
 }
 
 #seconds {
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0px 10px 10px 0px;
 }
 
 .label {
-    font-size: 22px;
+    font-size: clamp(10px, 1.5vw, 20px);
     font-weight: 400;
-    display: flex;
-    align-items: center;
-    height: auto;
-    align-self: center;
-    padding: 0;
+    margin: 0px 10px 0px 0px;
+    padding: 0px 0px 0px 10px;
 }
