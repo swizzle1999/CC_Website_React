@@ -14,7 +14,7 @@ function App() {
                 <Col>
 
                     <div className="card-box countdown-container mt-2 d-flex py-2">
-                        <Countdown targetTime={new Date('2026-08-12T11:00:00')} imgPath="images/nml4_logo.png" />
+                        <Countdown targetTime={new Date('2026-09-12T11:00:00')} imgPath="images/nml4_logo.png" />
                     </div>
 
                     <div className="card-box mt-2">
