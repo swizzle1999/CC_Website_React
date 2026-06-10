@@ -23,16 +23,22 @@ function Countdown({ targetTime, imgPath }) {
     useEffect(() => {
         const calculateTimeLeft = () => {
             const now = new Date();
-            const diffTime = targetTime - now;
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
-            const diffSeconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+            const target = targetTime instanceof Date ? targetTime : new Date(targetTime);
+            let diffMs = target.getTime() - now.getTime();
 
-            setDaysLeft(diffDays);
-            setHoursLeft(diffHours);
-            setMinutesLeft(diffMinutes);
-            setSecondsLeft(diffSeconds);
+            // prevent negatives after the target has passed
+            if (diffMs < 0) diffMs = 0;
+
+            const totalSeconds = Math.floor(diffMs / 1000);
+            const days = Math.floor(totalSeconds / (24 * 3600));
+            const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            setDaysLeft(days);
+            setHoursLeft(hours);
+            setMinutesLeft(minutes);
+            setSecondsLeft(seconds);
         };
 
         calculateTimeLeft();
