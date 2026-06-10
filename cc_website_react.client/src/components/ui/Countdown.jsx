@@ -6,7 +6,7 @@ import listPlugin from '@fullcalendar/list';
 import { Row, Col, Image, Stack } from 'react-bootstrap';
 import '@fontsource/dseg7-classic';
 
-function Countdown({ targetTime }) {
+function Countdown({ targetTime, imgPath }) {
     const [daysLeft, setDaysLeft] = useState(0);
     const [hoursLeft, setHoursLeft] = useState(0);
     const [minutesLeft, setMinutesLeft] = useState(0);
@@ -43,58 +43,45 @@ function Countdown({ targetTime }) {
 
     return (
         <div className="countdown">
-            <Row>
-                <Col xs={3}>
-                    <Row>
-                        <div className="clock" id="days">
-                            <span className="digit">{zeroPadding(daysLeft)}</span>
-                        </div>
-                    </Row>
-                    <Row>
-                        <div className="label">
-                            Days
-                        </div>
-                    </Row>
+            <Row className="align-items-center">
+                <Col>
+                    <Image src={`${import.meta.env.BASE_URL}${imgPath}`} className="countdownImage" />
                 </Col>
-                <Col xs={3}>
-                    <Row>
-                        <div className="clock" id="hours">
-                            <span className="digit">{zeroPadding(hoursLeft)}</span>
-                            <span className={"separator " + (secondsLeft % 2 == 0 ? "ghosted" : "")}>:</span>
-                        </div>
-                    </Row>
-                    <Row>
-                        <div className="label">
-                            Hours
-                        </div>
-                    </Row>
+                <Col className="gx-0">
+                    <div className="clock flex-grow-1 py-0" id="days">
+                        <span className="digit">{zeroPadding(daysLeft)}</span>
+                    </div>
+                    <div className="label">
+                        Days
+                    </div>
                 </Col>
-                <Col xs={3}>
-                    <Row>
-                        <div className="clock" id="minutes">
-                            <span className="digit">{zeroPadding(minutesLeft)}</span>
-                            <span className={"separator " + (secondsLeft % 2 == 0 ? "ghosted" : "")}>:</span>
-                        </div>
-                    </Row>
+                <Col className="gx-0">
+                    <div className="clock" id="hours">
+                        <span className="digit">{zeroPadding(hoursLeft)}</span>
+                        <span className={"separator " + (secondsLeft % 2 == 0 ? "ghosted" : "")}>:</span>
+                    </div>
+                    <div className="label">
+                        Hours
+                    </div>
+                </Col>
+                <Col className="gx-0">
+                    <div className="clock" id="minutes">
+                        <span className="digit">{zeroPadding(minutesLeft)}</span>
+                        <span className={"separator " + (secondsLeft % 2 == 0 ? "ghosted" : "")}>:</span>
+                    </div>
 
-                    <Row>
-                        <div className="label">
-                            Minutes
-                        </div>
-                    </Row>
+                    <div className="label">
+                        Minutes
+                    </div>
                 </Col>
-                <Col xs={3}>
-                    <Row>
-                        <div className="clock" id="seconds">
-                            <span className="digit">{zeroPadding(secondsLeft)}</span>
-                        </div>
-                    </Row>
-                    <Row>
-                        <div className="label">
-                            Seconds
-                        </div>
-                    </Row>
-                    </Col>
+                <Col className="gx-0">
+                    <div className="clock" id="seconds">
+                        <span className="digit">{zeroPadding(secondsLeft)}</span>
+                    </div>
+                    <div className="label">
+                        Seconds
+                    </div>
+                </Col>
             </Row>
         </div>
     );
