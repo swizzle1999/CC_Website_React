@@ -1,0 +1,17 @@
+{
+  "eslint.workingDirectories": [
+    { "pattern": "cc_website_react.client/" }
+  ],
+  "files.associations": {
+    "*.esproj": "xml"
+  },
+  "search.exclude": {
+    "cc_website_react.client/dist": true,
+    "cc_website_react.client/node_modules": true,
+    "cc_website_react.client/public/posts": true
+  },
+  "files.watcherExclude": {
+    "cc_website_react.client/dist": true,
+    "cc_website_react.client/node_modules": true
+  }
+}
