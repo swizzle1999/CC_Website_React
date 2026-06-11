@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://localhost:51076",
+      "webRoot": "${workspaceFolder}/cc_website_react.client",
+      "sourceMapPathOverrides": {
+        "/@fs/*": "${workspaceFolder}/*",
+        "webpack:///./*": "${workspaceFolder}/cc_website_react.client/*",
+        "webpack:///src/*": "${workspaceFolder}/cc_website_react.client/src/*"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack",
+      "configurations": ["Launch Chrome"],
+      "preLaunchTask": "dev"
+    }
+  ]
+}
