@@ -54,7 +54,7 @@ function Countdown({ targetTime, imgPath }) {
                     <Image src={`${import.meta.env.BASE_URL}${imgPath}`} className="countdownImage" />
                 </Col>
                 <Col className="gx-0">
-                    <div className="clock flex-grow-1 py-0" id="days">
+                    <div className="clock pe-4 flex-grow-1 py-0" id="days">
                         <span className="digit">{zeroPadding(daysLeft)}</span>
                     </div>
                     <div className="label">
