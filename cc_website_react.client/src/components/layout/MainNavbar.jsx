@@ -22,7 +22,7 @@ function MainNavbar() {
                         <a className="nav-btn" href="https://x.com/CaledonianClash" target="_blank" rel="noopener noreferrer">
                             <Image src={`${import.meta.env.BASE_URL}images/x.png`} width="35" height="36" />
                         </a>
-                        <a className="nav-btn" href="https://discord.gg/sx37tJw4E" target="_blank" rel="noopener noreferrer">
+                        <a className="nav-btn" href="https://discord.gg/CPKJ89Xnys" target="_blank" rel="noopener noreferrer">
                             <Image src={`${import.meta.env.BASE_URL}images/discord.png`} width="48" height="36" />
                         </a>
                         <a className="nav-btn" href="https://www.tiktok.com/@caledonianclash" target="_blank" rel="noopener noreferrer">
